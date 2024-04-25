@@ -1,3 +1,5 @@
+import { Player } from "../player.js";
+
 // only meant to use when testing parameter validation, otherwise it would cost a significant overhead during test runs
 export const garbage = [
   null,
@@ -41,5 +43,5 @@ export function serialize_garbage(garbage) {
 }
 
 export function make_player({ name, balance }) {
-  return { name, balance };
+  return new Player({ name, balance });
 }
