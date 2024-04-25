@@ -7,6 +7,10 @@ export class Game {
       throw new Error("At least 1 player must play the game");
     }
 
+    if (players.length > 7) {
+      throw new Error("No more than 7 players are allowed to join");
+    }
+
     this.#players = players;
     this.#amount_of_decks = amount_of_decks;
   }

@@ -33,4 +33,11 @@ suite("Game", () => {
       }, `Should throw an exception when player argument is ${JSON.stringify(players)}`);
     }
   });
+
+  test("A maximum of 7 players can join the game", () => {
+    assert.throws(() => {
+      const players = new Array(8).fill({ name: "Carl", balance: 1200 });
+      new Game({ players });
+    });
+  });
 });
