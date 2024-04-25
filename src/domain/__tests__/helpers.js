@@ -55,30 +55,6 @@ export function create_garbage(params = { ...default_garbage_config }) {
   return values;
 }
 
-export function serialize_garbage(garbage) {
-  if (typeof garbage === "bigint") {
-    return garbage.toString();
-  }
-
-  if (Number.isNaN(garbage)) {
-    return "NaN";
-  }
-
-  if (typeof garbage === 'number' && !Number.isFinite(garbage)) {
-    if (garbage === Number.NEGATIVE_INFINITY) {
-      return "Number.NEGATIVE_INFINITY";
-    }
-
-    return "Infinity or Number.POSITIVE_INFINITY";
-  }
-
-  if (garbage instanceof Date) {
-    return garbage.toUTCString();
-  }
-
-  return JSON.stringify(garbage);
-}
-
 export function make_player(override_properties) {
   return new Player({
     name: "Player",
