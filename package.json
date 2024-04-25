@@ -1,0 +1,25 @@
+{
+  "name": "blackjack-web-game",
+  "version": "1.0.0",
+  "description": "A blackjack game to be played in the browser",
+  "main": "src/presentation/web/index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node --test \"**/__tests__/**/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/andremarcondesteixeira/blackjack-web-game.git"
+  },
+  "keywords": [
+    "game",
+    "blackjack"
+  ],
+  "author": "André Marcondes Teixeira",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/andremarcondesteixeira/blackjack-web-game/issues"
+  },
+  "homepage": "https://github.com/andremarcondesteixeira/blackjack-web-game#readme"
+}
