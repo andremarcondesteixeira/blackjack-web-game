@@ -7,16 +7,16 @@ export class Game {
 
   constructor({ players, amount_of_decks }) {
     if (!(players instanceof Array)) {
-      throw new Error(`Expected an array of players, but got ${typeof players} instead`);
+      throw new Error(`Expected an array of players, but got ${serialize(players)} instead`);
     }
 
     if (players.length > 7) {
-      throw new Error("No more than 7 player can join the game");
+      throw new Error(`No more than 7 player can join the game, but tried to play with ${players.length} players`);
     }
 
     for (let i = 0; i < players.length; i++) {
       if (!(players[i] instanceof Player)) {
-        throw new Error(`Invalid player at players[${i}]`);
+        throw new Error(`Invalid player at index ${i}: ${serialize(players[i])}`);
       }
     }
 
