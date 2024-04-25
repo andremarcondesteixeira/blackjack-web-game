@@ -1,29 +1,33 @@
 import { Player } from "../player.js";
 
+const default_garbage_config = Object.freeze({
+  do_not_include_null: false,
+  do_not_include_undefined: false,
+  do_not_include_positive_numbers_except_zero: false,
+  do_not_include_negative_numbers: false,
+  do_not_include_zero: false,
+  do_not_include_NaN: false,
+  do_not_include_Infinity: false,
+  do_not_include_true: false,
+  do_not_include_false: false,
+  do_not_include_empty_array: false,
+  do_not_include_empty_object: false,
+  do_not_include_empty_string: false,
+  do_not_include_only_spaces_string: false,
+  do_not_include_arrow_function: false,
+  do_not_include_anonymous_function: false,
+  do_not_include_named_function: false,
+  do_not_include_anonymous_class: false,
+  do_not_include_named_class: false,
+  do_not_include_Date: false,
+  do_not_include_BigInt: false,
+});
+
 // only meant to use when testing parameter validation, otherwise it would cost a significant overhead during test runs
-export function create_garbage(params) {
+export function create_garbage(params = { ...default_garbage_config }) {
   const config = {
-    do_not_include_null: false,
-    do_not_include_undefined: false,
-    do_not_include_positive_numbers_except_zero: false,
-    do_not_include_negative_numbers: false,
-    do_not_include_zero: false,
-    do_not_include_NaN: false,
-    do_not_include_Infinity: false,
-    do_not_include_true: false,
-    do_not_include_false: false,
-    do_not_include_empty_array: false,
-    do_not_include_empty_object: false,
-    do_not_include_empty_string: false,
-    do_not_include_only_spaces_string: false,
-    do_not_include_arrow_function: false,
-    do_not_include_anonymous_function: false,
-    do_not_include_named_function: false,
-    do_not_include_anonymous_class: false,
-    do_not_include_named_class: false,
-    do_not_include_Date: false,
-    do_not_include_BigInt: false,
-    ...(params ?? {})
+    ...default_garbage_config,
+    ...params,
   };
   const values = [];
 
