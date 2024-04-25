@@ -1,6 +1,7 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { Game } from "../game.js";
+import { Lobby_State } from "../lobby_state.js";
 import { make_player } from "./helpers.js";
 
 suite("Game", () => {
@@ -8,7 +9,7 @@ suite("Game", () => {
     const game = new Game();
     assert.equal(game.amount_of_players, 0);
     assert.equal(game.amount_of_decks, 1);
-    assert(game.state instanceof LobbyState);
+    assert(game.state instanceof Lobby_State);
   });
 
   test.skip("At least 1 player must be playing the game", () => {
