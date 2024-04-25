@@ -12,4 +12,8 @@ export class Balance {
   deposit(amount) {
     this.#value += amount;
   }
+
+  withdraw(amount) {
+    this.#value -= amount;
+  }
 }

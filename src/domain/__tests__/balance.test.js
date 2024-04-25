@@ -24,5 +24,11 @@ suite("Balance", () => {
       balance.deposit(500);
       assert.equal(balance.value, 500);
     });
+
+    test("A balance can be withdrawn to decrease its value", () => {
+      const balance = new Balance(1200);
+      balance.withdraw(350);
+      assert.equal(balance.value, 850);
+    });
   });
 });
