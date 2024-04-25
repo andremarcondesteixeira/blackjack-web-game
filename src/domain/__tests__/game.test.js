@@ -15,7 +15,7 @@ suite("Game", () => {
           balance: 1500
         }
       ],
-      amount_of_decks: 2
+      amount_of_decks: 3
     });
 
     assert.equal(game.players.length, 2);
@@ -23,6 +23,6 @@ suite("Game", () => {
     assert.equal(game.players[0].balance, 1000);
     assert.equal(game.players[1].name, "John");
     assert.equal(game.players[1].balance, 1500);
-    assert.equal(game.amount_of_decks, 2);
+    assert.equal(game.amount_of_decks, 3);
   });
 });
