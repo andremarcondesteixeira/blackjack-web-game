@@ -1,3 +1,11 @@
+export function is_an_actual_number(x) {
+  return typeof x === "number" && !Number.isNaN(x) && Number.isFinite(x);
+}
+
+export function name_of(x) {
+  return Object.keys({ x })[0];
+}
+
 export function serialize(x) {
   if (typeof x === "bigint") {
     return x.toString();
@@ -20,12 +28,4 @@ export function serialize(x) {
   }
 
   return JSON.stringify(x);
-}
-
-export function name_of(x) {
-  return Object.keys({ x })[0];
-}
-
-export function is_an_actual_number(x) {
-  return typeof x === "number" && !Number.isNaN(x) && Number.isFinite(x);
 }
