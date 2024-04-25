@@ -1,18 +1,17 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { serialize } from "../../util.js";
-import { Game } from "../game.js";
+import { DECKS_MAX_ALLOWED_AMOUNT, Game, PLAYERS_MAX_ALLOWED_AMOUNT } from "../game.js";
 import { make_garbage, make_player } from "./helpers.js";
 
 suite("Game", () => {
   test("A Game object can be created", () => {
-    const player = make_player();
     const game = new Game({
-      players: [player],
-      amount_of_decks: 2,
+      players: [make_player()],
+      amount_of_decks: DECKS_MAX_ALLOWED_AMOUNT,
     });
     assert.equal(game.players.length, 1);
-    assert.equal(game.players[0], player);
+    assert.equal(game.players[0], make_player());
     assert.equal(game.amount_of_decks, 2);
   });
 
@@ -34,10 +33,12 @@ suite("Game", () => {
     }
   });
 
-  test("A maximum of 7 players can join the game", () => {
+  test(`A maximum of ${PLAYERS_MAX_ALLOWED_AMOUNT} players can join the game`, () => {
     assert.throws(() => {
-      const players = new Array(8).fill(make_player());
-      new Game({ players, amount_of_decks: 1 });
+      new Game({
+        players: new Array(PLAYERS_MAX_ALLOWED_AMOUNT + 1).fill(make_player()),
+        amount_of_decks: 1
+      });
     });
   });
 
@@ -51,11 +52,11 @@ suite("Game", () => {
     }
   });
 
-  test("A maximum of 8 decks can be used", () => {
+  test(`A maximum of ${DECKS_MAX_ALLOWED_AMOUNT} decks can be used`, () => {
     assert.throws(() => {
       new Game({
         players: [make_player()],
-        amount_of_decks: 9
+        amount_of_decks: DECKS_MAX_ALLOWED_AMOUNT + 1
       });
     });
   });
