@@ -25,3 +25,7 @@ export function serialize(x) {
 export function name_of(x) {
   return Object.keys({ x })[0];
 }
+
+export function is_an_actual_number(x) {
+  return typeof x === "number" && !Number.isNaN(x) && Number.isFinite(x);
+}

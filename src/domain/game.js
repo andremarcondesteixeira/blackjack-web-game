@@ -1,3 +1,4 @@
+import { is_an_actual_number, serialize } from "../util.js";
 import { Player } from "./player.js";
 
 export class Game {
@@ -17,6 +18,10 @@ export class Game {
       if (!(players[i] instanceof Player)) {
         throw new Error(`Invalid player at players[${i}]`);
       }
+    }
+
+    if (!is_an_actual_number(amount_of_decks) || amount_of_decks <= 0) {
+      throw new Error(`Amount of decks must be a positive integer greather than zero, but got ${serialize(amount_of_decks)} instead`);
     }
 
     this.#players = Object.freeze(players);
