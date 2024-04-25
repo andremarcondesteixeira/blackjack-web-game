@@ -14,16 +14,12 @@ suite("Balance", () => {
       assert.equal(balance.value, 1000);
     });
 
-    test("A balance can get a deposit to increase its value when initialized with default initial value", () => {
+    test("A balance can get a deposit to increase its value", () => {
       const balance = new Balance();
       balance.deposit(50);
       assert.equal(balance.value, 50);
-    });
-
-    test("A balance can get a deposit to increase its value when initialized with custom initial value", () => {
-      const balance = new Balance(5000);
-      balance.deposit(500);
-      assert.equal(balance.value, 5500);
+      balance.deposit(1000);
+      assert.equal(balance.value, 1050);
     });
 
     test("A balance can be withdrawn to decrease its value", () => {
