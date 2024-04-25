@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "blackjack-web-game",
   "version": "1.0.0",
   "description": "A blackjack game to be played in the browser",
