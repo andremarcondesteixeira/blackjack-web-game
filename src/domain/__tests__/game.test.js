@@ -1,15 +1,18 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { Game } from "../game.js";
-import { Lobby_State } from "../lobby_state.js";
-import { make_player } from "./helpers.js";
+import { create_garbage, make_player } from "./helpers.js";
 
 suite("Game", () => {
   test("A Game object can be created", () => {
-    const game = new Game();
-    assert.equal(game.amount_of_players, 0);
-    assert.equal(game.amount_of_decks, 1);
-    assert(game.state instanceof Lobby_State);
+    const player = make_player();
+    const game = new Game({
+      players: [player],
+      amount_of_decks: 2,
+    });
+    assert.equal(game.players.length, 1);
+    assert.equal(game.players[0], player);
+    assert.equal(game.amount_of_decks, 2);
   });
 
   test.skip("At least 1 player must be playing the game", () => {
