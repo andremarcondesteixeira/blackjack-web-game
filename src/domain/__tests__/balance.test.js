@@ -31,9 +31,24 @@ suite("Balance", () => {
     });
 
     test("A balance can be withdrawn to decrease its value", () => {
-      const balance = new Balance(1200);
+      const balance = new Balance();
+      balance.deposit(1200);
       balance.withdraw(350);
       assert.equal(balance.value, 850);
+      balance.withdraw(850);
+      assert.equal(balance.value, 0);
+    });
+
+    test("A balance can be withdrawn to decrease its value when initialized with custom initial value", () => {
+      let balance = new Balance(100);
+      balance.withdraw(100);
+      assert.equal(balance.value, 0);
+
+      balance = new Balance(1000);
+      balance.withdraw(600);
+      assert.equal(balance.value, 400);
+      balance.withdraw(400);
+      assert.equal(balance.value, 0);
     });
   });
 });
