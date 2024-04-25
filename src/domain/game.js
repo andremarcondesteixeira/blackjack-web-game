@@ -1,3 +1,5 @@
+import { Player } from "./player.js";
+
 export class Game {
   #players;
   #amount_of_decks;
@@ -6,6 +8,12 @@ export class Game {
     if (!(players instanceof Array)) {
       players.name;
       throw new Error(`Expected an array of players, but got ${typeof players} instead`);
+    }
+
+    for (let i = 0; i < players.length; i++) {
+      if (!(players[i] instanceof Player)) {
+        throw new Error(`Invalid player at players[${i}]`);
+      }
     }
 
     this.#players = Object.freeze(players);

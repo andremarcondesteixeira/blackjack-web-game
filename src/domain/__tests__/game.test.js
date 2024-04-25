@@ -20,7 +20,16 @@ suite("Game", () => {
     for (const players of garbage) {
       assert.throws(() => {
         new Game({ players, amount_of_decks: 1 });
-      }, `Should throw an exception when player argument is ${serialize_garbage(players)}`);
+      }, `Should throw an exception when players argument is ${serialize_garbage(players)}`);
+    }
+  });
+
+  test("Players must be instances of Player", () => {
+    const garbage = create_garbage();
+    for (const player of garbage) {
+      assert.throws(() => {
+        new Game({ players: [player], amount_of_decks: 1 });
+      }, `Should throw an exception when player is ${serialize_garbage(player)}`);
     }
   });
 
