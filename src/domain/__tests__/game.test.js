@@ -8,6 +8,7 @@ suite("Game", () => {
     const game = new Game();
     assert.equal(game.amount_of_players, 0);
     assert.equal(game.amount_of_decks, 1);
+    assert(game.state instanceof LobbyState);
   });
 
   test.skip("At least 1 player must be playing the game", () => {
