@@ -18,5 +18,13 @@ suite("Player", () => {
         }, `Should throw exception when player name is ${serialize_garbage(name)}`);
       }
     });
+
+    test("A player's balance must be a number greater than 0", () => {
+      for (const balance of garbage.filter(x => typeof x !== "number" || x < 0)) {
+        assert.throws(() => {
+          new Player({ name: "Claudia", balance });
+        }, `Should throw exception when player's balance is ${serialize_garbage(balance)}`);
+      }
+    });
   });
 });
