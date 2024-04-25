@@ -10,11 +10,11 @@ export class Game {
 
   constructor({ players, amount_of_decks }) {
     if (!(players instanceof Array)) {
-      throw new Error(`Expected an array of players, but got ${serialize(players)} instead`);
+      throw new Error(`Expected an array of players. Got ${serialize(players)} instead.`);
     }
 
     if (players.length > PLAYERS_MAX_ALLOWED_AMOUNT) {
-      throw new Error(`No more than ${PLAYERS_MAX_ALLOWED_AMOUNT} player can join the game, but tried to play with ${players.length} players`);
+      throw new Error(`A maximum of ${PLAYERS_MAX_ALLOWED_AMOUNT} players are allowed. Got ${players.length} instead.`);
     }
 
     for (let i = 0; i < players.length; i++) {
@@ -24,7 +24,7 @@ export class Game {
     }
 
     if (!is_an_actual_number(amount_of_decks) || amount_of_decks <= 0) {
-      throw new Error(`Amount of decks must be a positive integer greather than zero, but got ${serialize(amount_of_decks)} instead`);
+      throw new Error(`Amount of decks must be a positive integer greather than zero. Got ${serialize(amount_of_decks)} instead.`);
     }
 
     if (!Number.isInteger(amount_of_decks)) {
@@ -32,7 +32,7 @@ export class Game {
     }
 
     if (amount_of_decks > DECKS_MAX_ALLOWED_AMOUNT) {
-      throw new Error(`Maximum allowed amount of decks is ${DECKS_MAX_ALLOWED_AMOUNT}, but got ${amount_of_decks} instead`);
+      throw new Error(`A maximum of ${DECKS_MAX_ALLOWED_AMOUNT} are allowed. Got ${amount_of_decks} instead.`);
     }
 
     this.#players = Object.freeze(players);
