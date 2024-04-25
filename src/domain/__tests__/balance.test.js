@@ -15,6 +15,11 @@ suite("Balance", () => {
       assert.equal(balance.value, 1000);
     });
 
+    test("The initial balance will always be a rounded down integer", () => {
+      const balance = new Balance(230.99);
+      assert.equal(balance.value, 230);
+    });
+
     test("A balance can get a deposit to increase its value", () => {
       const balance = new Balance();
       balance.deposit(50);

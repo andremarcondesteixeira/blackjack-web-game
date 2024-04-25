@@ -6,7 +6,7 @@ export class Balance {
       throw new Error("The initial balance must be a number greater than or equal to 0");
     }
 
-    this.#value = initial_balance;
+    this.#value = Math.floor(initial_balance);
   }
 
   static #initial_balance_is_invalid(initial_balance) {
