@@ -24,7 +24,7 @@ const default_garbage_config = Object.freeze({
 });
 
 // only meant to use when testing parameter validation, otherwise it would cost a significant overhead during test runs
-export function create_garbage(params = { ...default_garbage_config }) {
+export function make_garbage(params = { ...default_garbage_config }) {
   const config = {
     ...default_garbage_config,
     ...params,
