@@ -1,19 +1,20 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { Game } from "../game.js";
+import { make_player } from "./helpers.js";
 
 suite("Game", () => {
   test("A Game object can be created", () => {
     const game = new Game({
       players: [
-        {
+        make_player({
           name: "Mary",
           balance: 1000
-        },
-        {
+        }),
+        make_player({
           name: "John",
           balance: 1500
-        }
+        })
       ],
       amount_of_decks: 3
     });
@@ -36,7 +37,7 @@ suite("Game", () => {
 
   test("A maximum of 7 players can join the game", () => {
     assert.throws(() => {
-      const players = new Array(8).fill({ name: "Carl", balance: 1200 });
+      const players = new Array(8).fill(make_player({ name: "Carl", balance: 1200 }));
       new Game({ players });
     });
   });
