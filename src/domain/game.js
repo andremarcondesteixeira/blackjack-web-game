@@ -1,8 +1,8 @@
 import { is_an_actual_number, serialize } from "../util.js";
 import { Player } from "./player.js";
 
-const DECKS_MAX_ALLOWED_AMOUNT = 8;
-const PLAYERS_MAX_ALLOWED_AMOUNT = 7;
+export const DECKS_MAX_ALLOWED_AMOUNT = 8;
+export const PLAYERS_MAX_ALLOWED_AMOUNT = 7;
 
 export class Game {
   #players;
@@ -25,6 +25,10 @@ export class Game {
 
     if (!is_an_actual_number(amount_of_decks) || amount_of_decks <= 0) {
       throw new Error(`Amount of decks must be a positive integer greather than zero, but got ${serialize(amount_of_decks)} instead`);
+    }
+
+    if (!Number.isInteger(amount_of_decks)) {
+      throw new Error(`Amount of decks must be an integer. Got ${amount_of_decks} instead.`);
     }
 
     if (amount_of_decks > DECKS_MAX_ALLOWED_AMOUNT) {

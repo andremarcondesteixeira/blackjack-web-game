@@ -42,7 +42,7 @@ suite("Game", () => {
     });
   });
 
-  test(`Amount of decks must be a positive integer`, () => {
+  test(`Amount of decks must be a number bigger than zero`, () => {
     const garbage = make_garbage({ do_not_include_positive_numbers_except_zero: true });
     for (const amount_of_decks of garbage) {
       assert.throws(
@@ -50,6 +50,15 @@ suite("Game", () => {
         `Should throw an exception when amount of decks is ${serialize(amount_of_decks)}`
       )
     }
+  });
+
+  test("Amount of decks must be an integer", () => {
+    assert.throws(() => {
+      new Game({
+        players: [make_player()],
+        amount_of_decks: 1.9
+      });
+    });
   });
 
   test(`A maximum of ${DECKS_MAX_ALLOWED_AMOUNT} decks can be used`, () => {
