@@ -27,6 +27,10 @@ export class Balance {
   }
 
   withdraw(amount) {
+    if (amount > this.#value) {
+      throw new Error(`The balance cannot be negative. Tried to withdraw ${amount} when the balance was ${this.#value}`);
+    }
+
     this.#value -= amount;
   }
 }

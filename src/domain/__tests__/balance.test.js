@@ -72,5 +72,10 @@ suite("Balance", () => {
         }, `Should throw an exception when the initial balance is ${serialize_garbage(initial_balance)}`);
       }
     });
+
+    test("Withdrawing a value greater than the balance's value is not allowed", () => {
+      assert.throws(() => new Balance().withdraw(100)); // 0 -> -100
+      assert.throws(() => new Balance(1000).withdraw(2000)); // 1000 -> -1000
+    });
   });
 });
