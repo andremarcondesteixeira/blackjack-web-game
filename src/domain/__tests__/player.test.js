@@ -8,4 +8,14 @@ suite("Player", () => {
     assert.equal(player.name, "Robert");
     assert.equal(player.balance, 5200);
   });
+
+  suite("Illegal states are unrepresentable", () => {
+    test("A player must have a name", () => {
+      for (const name of [null, undefined, "", "    ", {}, [], Date.now(), () => {}, 0, NaN]) {
+        assert.throws(() => {
+          new Player({ name, balance: 100 });
+        }, `Should throw exception when player name is ${JSON.stringify(name)}`);
+      }
+    });
+  });
 });

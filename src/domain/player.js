@@ -3,6 +3,10 @@ export class Player {
   #balance;
 
   constructor({ name, balance }) {
+    if (typeof name !== "string" || !(name.trim().length > 0)) {
+      throw new Error("Invalid name");
+    }
+
     this.#name = name;
     this.#balance = balance;
   }
