@@ -1,8 +1,8 @@
 export class Balance {
   #value;
 
-  constructor() {
-    this.#value = 0;
+  constructor(initial_balance = 0) {
+    this.#value = initial_balance;
   }
 
   get value() {

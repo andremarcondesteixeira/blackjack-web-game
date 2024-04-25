@@ -7,4 +7,9 @@ suite("Balance", () => {
     const balance = new Balance();
     assert.equal(balance.value, 0);
   });
+
+  test("An initial balance can be specified", () => {
+    const balance = new Balance(1000);
+    assert.equal(balance.value, 1000);
+  });
 });
