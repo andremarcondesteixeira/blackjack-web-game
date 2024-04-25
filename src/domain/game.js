@@ -24,6 +24,10 @@ export class Game {
       throw new Error(`Amount of decks must be a positive integer greather than zero, but got ${serialize(amount_of_decks)} instead`);
     }
 
+    if (amount_of_decks > 7) {
+      throw new Error(`Maximum allowed amount of decks is 7, but got ${amount_of_decks} instead`);
+    }
+
     this.#players = Object.freeze(players);
     this.#amount_of_decks = amount_of_decks;
   }

@@ -50,4 +50,13 @@ suite("Game", () => {
       )
     }
   });
+
+  test("A maximum of 8 decks can be used", () => {
+    assert.throws(() => {
+      new Game({
+        players: [make_player()],
+        amount_of_decks: 9
+      });
+    });
+  });
 });
