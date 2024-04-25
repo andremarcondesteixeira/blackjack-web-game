@@ -27,7 +27,7 @@ suite("Game", () => {
   });
 
   test("At least 1 player must be playing the game", () => {
-    for (const players of [null, undefined, []]) {
+    for (const players of [null, undefined, [], {}]) {
       assert.throws(() => {
         new Game({ players, amount_of_decks: 1 });
       }, `Should throw an exception when player argument is ${JSON.stringify(players)}`);
