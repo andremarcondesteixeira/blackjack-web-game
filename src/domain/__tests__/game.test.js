@@ -33,10 +33,10 @@ suite("Game", () => {
     }
   });
 
-  test.skip("A maximum of 7 players can join the game", () => {
+  test("A maximum of 7 players can join the game", () => {
     assert.throws(() => {
-      const players = new Array(8).fill(make_player({ name: "Carl", balance: 1200 }));
-      new Game({ players });
+      const players = new Array(8).fill(make_player());
+      new Game({ players, amount_of_decks: 1 });
     });
   });
 });
