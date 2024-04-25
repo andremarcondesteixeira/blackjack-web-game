@@ -8,4 +8,8 @@ export class Balance {
   get value() {
     return this.#value;
   }
+
+  deposit(amount) {
+    this.#value += amount;
+  }
 }
