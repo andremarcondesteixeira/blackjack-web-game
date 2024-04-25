@@ -6,13 +6,14 @@ import { make_garbage, make_player } from "./helpers.js";
 
 suite("Game", () => {
   test("A Game object can be created", () => {
+    const player = make_player();
     const game = new Game({
-      players: [make_player()],
+      players: [player],
       amount_of_decks: DECKS_MAX_ALLOWED_AMOUNT,
     });
     assert.equal(game.players.length, 1);
-    assert.equal(game.players[0], make_player());
-    assert.equal(game.amount_of_decks, 2);
+    assert.equal(game.players[0], player);
+    assert.equal(game.amount_of_decks, DECKS_MAX_ALLOWED_AMOUNT);
   });
 
   test("Players argument must be an array", () => {
