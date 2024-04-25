@@ -42,6 +42,10 @@ export function serialize_garbage(garbage) {
   return JSON.stringify(garbage);
 }
 
-export function make_player({ name, balance }) {
-  return new Player({ name, balance });
+export function make_player(override_properties) {
+  return new Player({
+    name: "Player",
+    balance: 0,
+    ...override_properties
+  });
 }
