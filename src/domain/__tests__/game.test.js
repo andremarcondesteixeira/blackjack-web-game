@@ -1,7 +1,7 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { Game } from "../game.js";
-import { create_garbage, make_player } from "./helpers.js";
+import { create_garbage, make_player, serialize_garbage } from "./helpers.js";
 
 suite("Game", () => {
   test("A Game object can be created", () => {
@@ -15,11 +15,12 @@ suite("Game", () => {
     assert.equal(game.amount_of_decks, 2);
   });
 
-  test.skip("At least 1 player must be playing the game", () => {
-    for (const players of [null, undefined, [], {}]) {
+  test("Players argument must be an array", () => {
+    const garbage = create_garbage({ do_not_include_empty_array: true });
+    for (const players of garbage) {
       assert.throws(() => {
         new Game({ players, amount_of_decks: 1 });
-      }, `Should throw an exception when player argument is ${JSON.stringify(players)}`);
+      }, `Should throw an exception when player argument is ${serialize_garbage(players)}`);
     }
   });
 
