@@ -1,15 +1,15 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { serialize } from "../../util.js";
-import { DECKS_MAX_ALLOWED_AMOUNT, Game_Start, PLAYERS_MAX_ALLOWED_AMOUNT } from "../game_start.js";
+import { DECKS_MAX_ALLOWED_AMOUNT, Initial_State, PLAYERS_MAX_ALLOWED_AMOUNT } from "../initial_state.js";
 import { Players_Betting_State } from "../players_betting_state.js";
 import { make_garbage, make_player } from "./helpers.js";
 
-suite("Game_Start", () => {
+suite("Initial_State", () => {
   suite("Happy path", () => {
-    test("A Game_Start object can be created", () => {
+    test("An Initial_State object can be created", () => {
       const player = make_player();
-      const game = new Game_Start({
+      const game = new Initial_State({
         players: [player],
         amount_of_decks: DECKS_MAX_ALLOWED_AMOUNT,
       });
@@ -19,7 +19,7 @@ suite("Game_Start", () => {
     });
 
     test("A game can be started after defining the players and the amount of decks", () => {
-      const players_betting_state = new Game_Start({
+      const players_betting_state = new Initial_State({
         players: [make_player()],
         amount_of_decks: 1
       }).begin_game();
@@ -33,7 +33,7 @@ suite("Game_Start", () => {
       const garbage = make_garbage({ do_not_include_empty_array: true });
       for (const players of garbage) {
         assert.throws(() => {
-          new Game_Start({ players, amount_of_decks: 1 });
+          new Initial_State({ players, amount_of_decks: 1 });
         }, `Should throw an exception when players argument is ${serialize(players)}`);
       }
     });
@@ -42,14 +42,14 @@ suite("Game_Start", () => {
       const garbage = make_garbage();
       for (const player of garbage) {
         assert.throws(() => {
-          new Game_Start({ players: [player], amount_of_decks: 1 });
+          new Initial_State({ players: [player], amount_of_decks: 1 });
         }, `Should throw an exception when player is ${serialize(player)}`);
       }
     });
 
     test(`A maximum of ${PLAYERS_MAX_ALLOWED_AMOUNT} players can join the game`, () => {
       assert.throws(() => {
-        new Game_Start({
+        new Initial_State({
           players: new Array(PLAYERS_MAX_ALLOWED_AMOUNT + 1).fill(make_player()),
           amount_of_decks: 1
         });
@@ -60,7 +60,7 @@ suite("Game_Start", () => {
       const garbage = make_garbage({ do_not_include_positive_numbers_except_zero: true });
       for (const amount_of_decks of garbage) {
         assert.throws(
-          () => new Game_Start({ players: [make_player()], amount_of_decks }),
+          () => new Initial_State({ players: [make_player()], amount_of_decks }),
           `Should throw an exception when amount of decks is ${serialize(amount_of_decks)}`
         )
       }
@@ -68,7 +68,7 @@ suite("Game_Start", () => {
 
     test("Amount of decks must be an integer", () => {
       assert.throws(() => {
-        new Game_Start({
+        new Initial_State({
           players: [make_player()],
           amount_of_decks: 1.9
         });
@@ -77,7 +77,7 @@ suite("Game_Start", () => {
 
     test(`A maximum of ${DECKS_MAX_ALLOWED_AMOUNT} decks can be used`, () => {
       assert.throws(() => {
-        new Game_Start({
+        new Initial_State({
           players: [make_player()],
           amount_of_decks: DECKS_MAX_ALLOWED_AMOUNT + 1
         });

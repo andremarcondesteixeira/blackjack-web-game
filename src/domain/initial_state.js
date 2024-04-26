@@ -5,7 +5,7 @@ import { Players_Betting_State } from "./players_betting_state.js";
 export const DECKS_MAX_ALLOWED_AMOUNT = 8;
 export const PLAYERS_MAX_ALLOWED_AMOUNT = 7;
 
-export class Game_Start {
+export class Initial_State {
   #players;
   #amount_of_decks;
 
