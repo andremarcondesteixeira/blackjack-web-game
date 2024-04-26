@@ -1,4 +1,4 @@
-import { Player } from "../player.js";
+import { Player } from "./domain/player.js";
 
 const default_garbage_config = Object.freeze({
   do_not_include_null: false,

@@ -1,9 +1,9 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
+import { make_garbage, make_player } from "../../../test_helpers.js";
 import { serialize } from "../../../util.js";
 import { DECKS_MAX_ALLOWED_AMOUNT, Initial_State, PLAYERS_MAX_ALLOWED_AMOUNT } from "../initial_state.js";
 import { Players_Betting_State } from "../players_betting_state.js";
-import { make_garbage, make_player } from "../../__tests__/test_helpers.js";
 
 suite("Initial_State", () => {
   suite("Happy path", () => {
