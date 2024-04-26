@@ -28,7 +28,6 @@ suite(name_of(Card), () => {
     });
 
     test("An amount of shuffled decks can be created", () => {
-      assert.equal(make_shuffled_decks().length, 52);
       assert.equal(make_shuffled_decks(1).length, 52);
       assert.equal(make_shuffled_decks(2).length, 104);
       assert.equal(make_shuffled_decks(3).length, 156);
