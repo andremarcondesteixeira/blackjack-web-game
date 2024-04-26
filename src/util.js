@@ -3,6 +3,10 @@ export function is_an_actual_number(x) {
 }
 
 export function name_of(x) {
+  if (typeof x === 'function') {
+    return x.name ?? x.constructor.name;
+  }
+
   return Object.keys({ x })[0];
 }
 

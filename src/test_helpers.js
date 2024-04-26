@@ -14,6 +14,7 @@ const default_garbage_config = Object.freeze({
   do_not_include_empty_object: false,
   do_not_include_empty_string: false,
   do_not_include_only_spaces_string: false,
+  do_not_include_random_string: false,
   do_not_include_arrow_function: false,
   do_not_include_anonymous_function: false,
   do_not_include_named_function: false,
@@ -44,6 +45,7 @@ export function make_garbage(params = { ...default_garbage_config }) {
   !config.do_not_include_empty_object && values.push({});
   !config.do_not_include_empty_string && values.push("");
   !config.do_not_include_only_spaces_string && values.push("   ");
+  !config.do_not_include_random_string && values.push("---------------------------------------------------------------------------------------------------------------------------"),
   !config.do_not_include_arrow_function && values.push(() => { });
   !config.do_not_include_anonymous_function && values.push(function () { });
   !config.do_not_include_named_function && values.push(function foo() { });

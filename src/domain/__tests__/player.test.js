@@ -13,7 +13,7 @@ suite("Player", () => {
 
   suite("Validation", () => {
     test("A player must have a name", () => {
-      const garbage = make_garbage();
+      const garbage = make_garbage({ do_not_include_random_string: true });
       for (const name of garbage) {
         assert.throws(() => {
           new Player({ name, balance: 100 });
