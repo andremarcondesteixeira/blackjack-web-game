@@ -1,5 +1,5 @@
-import { is_an_actual_number, serialize } from "../util.js";
-import { Player } from "./player.js";
+import { is_an_actual_number, serialize } from "../../util.js";
+import { Player } from "../player.js";
 import { Players_Betting_State } from "./players_betting_state.js";
 
 export const DECKS_MAX_ALLOWED_AMOUNT = 8;
