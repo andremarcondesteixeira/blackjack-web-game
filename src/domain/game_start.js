@@ -4,7 +4,7 @@ import { Player } from "./player.js";
 export const DECKS_MAX_ALLOWED_AMOUNT = 8;
 export const PLAYERS_MAX_ALLOWED_AMOUNT = 7;
 
-export class Game {
+export class Game_Start {
   #players;
   #amount_of_decks;
 
