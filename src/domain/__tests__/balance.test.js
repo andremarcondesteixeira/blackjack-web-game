@@ -1,7 +1,8 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
+import { serialize } from "../../util.js";
 import { Balance } from "../balance.js";
-import { create_garbage, serialize_garbage } from "./helpers.js";
+import { make_garbage } from "./helpers.js";
 
 suite("Balance", () => {
   suite("Happy path", () => {
@@ -60,7 +61,7 @@ suite("Balance", () => {
 
   suite("Validation", () => {
     test("The custom initial balance must be a number greater than or equal to 0", () => {
-      const garbage = create_garbage({
+      const garbage = make_garbage({
         do_not_include_positive_numbers_except_zero: true,
         do_not_include_zero: true,
         do_not_include_undefined: true,
@@ -69,7 +70,7 @@ suite("Balance", () => {
       for (let initial_balance of garbage) {
         assert.throws(() => {
           new Balance(initial_balance);
-        }, `Should throw an exception when the initial balance is ${serialize_garbage(initial_balance)}`);
+        }, `Should throw an exception when the initial balance is ${serialize(initial_balance)}`);
       }
     });
 
