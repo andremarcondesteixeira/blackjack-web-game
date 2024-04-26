@@ -2,7 +2,7 @@ import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { serialize } from "../../util.js";
 import { Balance } from "../balance.js";
-import { make_garbage } from "./helpers.js";
+import { make_garbage } from "./test_helpers.js";
 
 suite("Balance", () => {
   suite("Happy path", () => {
