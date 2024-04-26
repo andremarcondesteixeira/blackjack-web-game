@@ -1,5 +1,6 @@
 import { is_an_actual_number, serialize } from "../util.js";
 import { Player } from "./player.js";
+import { Players_Betting_State } from "./players_betting_state.js";
 
 export const DECKS_MAX_ALLOWED_AMOUNT = 8;
 export const PLAYERS_MAX_ALLOWED_AMOUNT = 7;
@@ -45,5 +46,9 @@ export class Game_Start {
 
   get amount_of_decks() {
     return this.#amount_of_decks;
+  }
+
+  begin_game() {
+    return new Players_Betting_State();
   }
 }

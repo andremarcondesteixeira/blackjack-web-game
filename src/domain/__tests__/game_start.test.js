@@ -2,6 +2,7 @@ import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { serialize } from "../../util.js";
 import { DECKS_MAX_ALLOWED_AMOUNT, Game_Start, PLAYERS_MAX_ALLOWED_AMOUNT } from "../game_start.js";
+import { Players_Betting_State } from "../players_betting_state.js";
 import { make_garbage, make_player } from "./helpers.js";
 
 suite("Game_Start", () => {
@@ -15,6 +16,15 @@ suite("Game_Start", () => {
       assert.equal(game.players.length, 1);
       assert.equal(game.players[0], player);
       assert.equal(game.amount_of_decks, DECKS_MAX_ALLOWED_AMOUNT);
+    });
+
+    test("A game can be started after defining the players and the amount of decks", () => {
+      const players_betting_state = new Game_Start({
+        players: [make_player()],
+        amount_of_decks: 1
+      }).begin_game();
+
+      assert(players_betting_state instanceof Players_Betting_State);
     });
   });
 
