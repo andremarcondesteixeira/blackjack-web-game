@@ -2,20 +2,21 @@ import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
 import { DECKS_MAX_ALLOWED_AMOUNT, PLAYERS_MAX_ALLOWED_AMOUNT } from "../../../constants.js";
 import { make_garbage, make_player } from "../../../test_helpers.js";
-import { serialize } from "../../../util.js";
+import { name_of, serialize } from "../../../util.js";
 import { Initial_State } from "../initial_state.js";
 import { Players_Betting_State } from "../players_betting_state.js";
 
-suite("Initial_State", () => {
+suite(name_of(Initial_State), () => {
   suite("Happy path", () => {
-    test("An Initial_State object can be created", () => {
+    test(`A new ${name_of(Initial_State)} object can be created`, () => {
       const player = make_player();
       const game = new Initial_State({
         players: [player],
         amount_of_decks: DECKS_MAX_ALLOWED_AMOUNT,
       });
       assert.equal(game.players.length, 1);
-      assert.equal(game.players[0], player);
+      assert.equal(game.players[0].name, player.name);
+      assert.equal(game.players[0].balance, player.balance);
       assert.equal(game.amount_of_decks, DECKS_MAX_ALLOWED_AMOUNT);
     });
 
