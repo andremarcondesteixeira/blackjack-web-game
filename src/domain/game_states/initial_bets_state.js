@@ -1,4 +1,4 @@
-export class Players_Betting_State {
+export class Initial_Bets_State {
   #cards;
   #players;
 

@@ -3,13 +3,13 @@ import { suite, test } from "node:test";
 import { make_player } from "../../../test_helpers.js";
 import { name_of } from "../../../util.js";
 import { make_shuffled_decks } from "../../card.js";
-import { Players_Betting_State } from "../players_betting_state.js";
+import { Initial_Bets_State } from "../initial_bets_state.js";
 
-suite(name_of(Players_Betting_State), () => {
+suite(name_of(Initial_Bets_State), () => {
   suite("Happy path", () => {
-    test(`A new ${name_of(Players_Betting_State)} object can be created`, () => {
+    test(`A new ${name_of(Initial_Bets_State)} object can be created`, () => {
       const player = make_player();
-      const state = new Players_Betting_State({
+      const state = new Initial_Bets_State({
         players: [player],
         cards: make_shuffled_decks(1)
       });
