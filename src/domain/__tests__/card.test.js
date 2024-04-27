@@ -1,5 +1,6 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
+import { DECKS_MAX_ALLOWED_AMOUNT } from "../../constants.js";
 import { make_garbage } from "../../test_helpers.js";
 import { name_of, serialize } from "../../util.js";
 import { Card, Faces, Suits, make_shuffled_decks } from "../card.js";
@@ -64,7 +65,7 @@ suite(name_of(Card), () => {
       }
     });
 
-    test("The amount of decks must be a positive integer between 1 and 8", () => {
+    test(`The amount of decks must be a positive integer between 1 and ${DECKS_MAX_ALLOWED_AMOUNT}`, () => {
       const garbage = make_garbage({ use_positive_numbers_except_zero: [9, Number.MAX_SAFE_INTEGER] });
       for (const amount_of_decks of garbage) {
         assert.throws(() => {

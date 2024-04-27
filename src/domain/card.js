@@ -1,3 +1,4 @@
+import { DECKS_MAX_ALLOWED_AMOUNT } from "../constants.js";
 import { serialize } from "../util.js";
 
 export const Suits = Object.freeze({
@@ -93,8 +94,8 @@ export class Card {
 }
 
 export function make_shuffled_decks(amount_of_decks) {
-  if (!Number.isInteger(amount_of_decks) || amount_of_decks < 1 || amount_of_decks > 8) {
-    throw new Error(`The amount of decks must be an integer between 1 and 8. Got ${serialize(amount_of_decks)} instead.`);
+  if (!Number.isInteger(amount_of_decks) || amount_of_decks < 1 || amount_of_decks > DECKS_MAX_ALLOWED_AMOUNT) {
+    throw new Error(`The amount of decks must be an integer between 1 and ${DECKS_MAX_ALLOWED_AMOUNT}. Got ${serialize(amount_of_decks)} instead.`);
   }
 
   const cards = [];

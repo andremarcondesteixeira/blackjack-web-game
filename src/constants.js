@@ -1,0 +1,2 @@
+export const DECKS_MAX_ALLOWED_AMOUNT = 8;
+export const PLAYERS_MAX_ALLOWED_AMOUNT = 7;
