@@ -2,9 +2,9 @@ import { DECKS_MAX_ALLOWED_AMOUNT, PLAYERS_MAX_ALLOWED_AMOUNT } from "../../cons
 import { is_an_actual_number, serialize } from "../../util.js";
 import { make_shuffled_decks } from "../card.js";
 import { Player } from "../player.js";
-import { Players_Betting_State } from "./players_betting_state.js";
+import { Initial_Bets_State } from "./initial_bets_state.js";
 
-export class Initial_State {
+export class Game_Beginning_State {
   #players;
   #amount_of_decks;
 
@@ -48,7 +48,7 @@ export class Initial_State {
   }
 
   begin_game() {
-    return new Players_Betting_State({
+    return new Initial_Bets_State({
       players: this.#players,
       cards: make_shuffled_decks(this.#amount_of_decks)
     });
