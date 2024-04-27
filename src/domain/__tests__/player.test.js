@@ -11,7 +11,7 @@ suite("Player", () => {
     assert.equal(player.balance.value, 5200);
   });
 
-  suite("Validation", () => {
+  suite("Illegal states must be unrepresentable", () => {
     test("A player must have a name", () => {
       const garbage = make_garbage({ use_random_string: false });
       for (const name of garbage) {

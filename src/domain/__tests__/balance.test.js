@@ -59,7 +59,7 @@ suite("Balance", () => {
     });
   });
 
-  suite("Validation", () => {
+  suite("Illegal states must be unrepresentable", () => {
     test("The custom initial balance must be a number greater than or equal to 0", () => {
       const garbage = make_garbage({
         use_positive_numbers_except_zero: false,
