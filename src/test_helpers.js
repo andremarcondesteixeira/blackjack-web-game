@@ -35,7 +35,7 @@ export function make_garbage(params = { ...default_garbage_config }) {
   config.use_null && values.push(null);
   config.use_undefined && values.push(undefined);
   config.use_positive_numbers_except_zero && values.push(...(
-    typeof config.use_positive_numbers_except_zero === 'array' ?
+    config.use_positive_numbers_except_zero instanceof Array ?
       config.use_positive_numbers_except_zero :
       [1, 1.01, 1000, 1000.01, 100000000, 100000000.01, Number.MAX_VALUE, Number.MIN_VALUE, Number.MAX_SAFE_INTEGER, Number.EPSILON]
   ));
