@@ -1,9 +1,9 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
-import { Players_Betting_State } from "../players_betting_state.js";
-import { name_of } from "../../../util.js";
 import { make_player } from "../../../test_helpers.js";
+import { name_of } from "../../../util.js";
 import { make_shuffled_decks } from "../../card.js";
+import { Players_Betting_State } from "../players_betting_state.js";
 
 suite(name_of(Players_Betting_State), () => {
   suite("Happy path", () => {
