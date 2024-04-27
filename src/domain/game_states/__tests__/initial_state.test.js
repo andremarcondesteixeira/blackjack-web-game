@@ -30,7 +30,7 @@ suite("Initial_State", () => {
 
   suite("Illegal states must be unnrepresentable", () => {
     test("Players argument must be an array", () => {
-      const garbage = make_garbage({ do_not_include_empty_array: true });
+      const garbage = make_garbage({ use_empty_array: false });
       for (const players of garbage) {
         assert.throws(() => {
           new Initial_State({ players, amount_of_decks: 1 });
@@ -57,7 +57,7 @@ suite("Initial_State", () => {
     });
 
     test(`Amount of decks must be a number bigger than zero`, () => {
-      const garbage = make_garbage({ do_not_include_positive_numbers_except_zero: true });
+      const garbage = make_garbage({ use_positive_numbers_except_zero: false });
       for (const amount_of_decks of garbage) {
         assert.throws(
           () => new Initial_State({ players: [make_player()], amount_of_decks }),

@@ -13,7 +13,7 @@ suite("Player", () => {
 
   suite("Validation", () => {
     test("A player must have a name", () => {
-      const garbage = make_garbage({ do_not_include_random_string: true });
+      const garbage = make_garbage({ use_random_string: false });
       for (const name of garbage) {
         assert.throws(() => {
           new Player({ name, balance: 100 });
@@ -23,10 +23,10 @@ suite("Player", () => {
 
     test("A player's balance must be a finite number greater than or equal to 0, or null, or undefined", () => {
       const garbage = make_garbage({
-        do_not_include_positive_numbers_except_zero: true,
-        do_not_include_zero: true,
-        do_not_include_null: true,
-        do_not_include_undefined: true,
+        use_positive_numbers_except_zero: false,
+        use_zero: false,
+        use_null: false,
+        use_undefined: false,
       });
       for (const balance of garbage) {
         assert.throws(() => {

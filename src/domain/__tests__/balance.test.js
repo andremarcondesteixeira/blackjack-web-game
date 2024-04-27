@@ -62,10 +62,10 @@ suite("Balance", () => {
   suite("Validation", () => {
     test("The custom initial balance must be a number greater than or equal to 0", () => {
       const garbage = make_garbage({
-        do_not_include_positive_numbers_except_zero: true,
-        do_not_include_zero: true,
-        do_not_include_undefined: true,
-        do_not_include_null: true,
+        use_positive_numbers_except_zero: false,
+        use_zero: false,
+        use_undefined: false,
+        use_null: false,
       });
       for (let initial_balance of garbage) {
         assert.throws(() => {
