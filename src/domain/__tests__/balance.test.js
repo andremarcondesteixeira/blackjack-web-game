@@ -11,13 +11,8 @@ suite(name_of(Balance), () => {
       assert.equal(balance.value, 0);
     });
 
-    test("The initial balance will always be a rounded down integer", () => {
-      const balance = new Balance(230.99);
-      assert.equal(balance.value, 230);
-    });
-
     test("A balance can get a deposit to increase its value", () => {
-      const balance = new Balance();
+      const balance = new Balance(0);
       balance.deposit(50);
       assert.equal(balance.value, 50);
       balance.deposit(1000);
@@ -33,7 +28,7 @@ suite(name_of(Balance), () => {
     });
 
     test("A balance can be withdrawn to decrease its value", () => {
-      const balance = new Balance();
+      const balance = new Balance(0);
       balance.deposit(1200);
       balance.withdraw(350);
       assert.equal(balance.value, 850);

@@ -67,7 +67,7 @@ export function make_player(override_properties) {
     id: 1,
     name: "Player",
     balance: 0,
-    ...override_properties
+    ...(override_properties ?? {})
   });
 }
 

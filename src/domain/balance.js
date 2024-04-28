@@ -3,12 +3,12 @@ import { is_an_actual_integer } from "../util.js";
 export class Balance {
   #value;
 
-  constructor(initial_balance) {
-    if (is_an_actual_integer(initial_balance) || initial_balance < 0) {
-      throw new Error("The initial balance must be a number greater than or equal to 0");
+  constructor(balance) {
+    if (!is_an_actual_integer(balance) || balance < 0) {
+      throw new Error("The balance must be a positive integer greater than or equal to 0");
     }
 
-    this.#value = Math.floor(initial_balance);
+    this.#value = balance;
   }
 
   get value() {
