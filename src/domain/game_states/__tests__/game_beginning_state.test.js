@@ -24,7 +24,7 @@ suite(name_of(Game_Beginning_State), () => {
       const initial_bets_state = new Game_Beginning_State({
         players: [make_player()],
         amount_of_decks: 1
-      }).begin_game();
+      }).begin_game([]);
 
       assert(initial_bets_state instanceof Initial_Bets_State);
     });

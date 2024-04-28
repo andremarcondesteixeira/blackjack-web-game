@@ -47,10 +47,11 @@ export class Game_Beginning_State {
     return this.#amount_of_decks;
   }
 
-  begin_game() {
+  begin_game(bets) {
     return new Initial_Bets_State({
       players: this.#players,
-      cards: make_shuffled_decks(this.#amount_of_decks)
+      cards: make_shuffled_decks(this.#amount_of_decks),
+      bets,
     });
   }
 }
