@@ -1,11 +1,11 @@
-import { is_an_actual_integer } from "../util.js";
+import { is_an_actual_integer, serialize } from "../util.js";
 
 export class Balance {
   #value;
 
   constructor(balance) {
     if (!is_an_actual_integer(balance) || balance < 0) {
-      throw new Error("The balance must be a positive integer greater than or equal to 0");
+      throw new Error(`The balance must be a positive integer greater than or equal to 0. Got ${serialize(balance)} instead.`);
     }
 
     this.#value = balance;
