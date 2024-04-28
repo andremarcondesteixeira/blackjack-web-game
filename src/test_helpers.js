@@ -74,7 +74,7 @@ export function make_player(override_properties) {
 export function make_bets(players) {
   const bets = [];
 
-  for (const player in players) {
+  for (const player of players) {
     bets.push(new Bet({
       player_id: player.id,
       value: 1000
