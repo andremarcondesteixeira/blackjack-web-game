@@ -5,10 +5,16 @@ import { Player } from "../player.js";
 import { make_garbage } from "../../test_helpers.js";
 
 suite("Player", () => {
-  test("A new Player object can be created", () => {
-    const player = new Player({ name: "Robert", balance: 5200 });
-    assert.equal(player.name, "Robert");
-    assert.equal(player.balance.value, 5200);
+  suite("Happy path", () => {
+    test("A new Player object can be created", () => {
+      const player = new Player({
+        id: 1,
+        name: "Robert",
+        balance: 5200
+      });
+      assert.equal(player.name, "Robert");
+      assert.equal(player.balance.value, 5200);
+    });
   });
 
   suite("Illegal states must be unrepresentable", () => {
@@ -16,8 +22,25 @@ suite("Player", () => {
       const garbage = make_garbage({ use_random_string: false });
       for (const name of garbage) {
         assert.throws(() => {
-          new Player({ name, balance: 100 });
+          new Player({
+            id: 1,
+            name,
+            balance: 100
+          });
         }, `Should throw exception when player name is ${serialize(name)}`);
+      }
+    });
+
+    test("A player's ID must be a positive integer", () => {
+      const garbage = make_garbage({ use_positive_numbers_except_zero: false });
+      for (const id of garbage) {
+        assert.throws(() => {
+          new Player({
+            id,
+            name: "Robert",
+            balance: 1000
+          });
+        }, `Should throw an exception when ID is ${serialize(id)}`);
       }
     });
 
@@ -30,7 +53,11 @@ suite("Player", () => {
       });
       for (const balance of garbage) {
         assert.throws(() => {
-          new Player({ name: "Claudia", balance });
+          new Player({
+            id: 1,
+            name: "Claudia",
+            balance
+          });
         }, `Should throw exception when player's balance is ${serialize(balance)}`);
       }
     });

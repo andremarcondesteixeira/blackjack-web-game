@@ -2,6 +2,14 @@ export function is_an_actual_number(x) {
   return typeof x === "number" && !Number.isNaN(x) && Number.isFinite(x);
 }
 
+export function is_an_actual_integer(x) {
+  return is_an_actual_number(x) && Number.isInteger(x);
+}
+
+export function is_an_actual_positive_integer(x) {
+  return is_an_actual_integer(x) && x > 0;
+}
+
 /**
  * Usage: pass in a function, or object, like:
  *

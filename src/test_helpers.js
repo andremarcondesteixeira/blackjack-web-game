@@ -63,6 +63,7 @@ export function make_garbage(params = { ...default_garbage_config }) {
 
 export function make_player(override_properties) {
   return new Player({
+    id: 1,
     name: "Player",
     balance: 0,
     ...override_properties
