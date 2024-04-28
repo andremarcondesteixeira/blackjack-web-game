@@ -41,7 +41,7 @@ export class Initial_Bets_State {
 
     this.#decks = Object.freeze(decks);
     this.#players = Object.freeze(players);
-    this.#bets = bets;
+    this.#bets = Object.freeze(bets);
   }
 
   get decks() {
