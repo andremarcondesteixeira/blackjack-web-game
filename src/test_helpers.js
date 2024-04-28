@@ -1,3 +1,4 @@
+import { Bet } from "./domain/bet.js";
 import { Player } from "./domain/player.js";
 
 const default_garbage_config = Object.freeze({
@@ -68,4 +69,17 @@ export function make_player(override_properties) {
     balance: 0,
     ...override_properties
   });
+}
+
+export function make_bets(players) {
+  const bets = [];
+
+  for (const player in players) {
+    bets.push(new Bet({
+      player_id: player.id,
+      value: 1000
+    }));
+  }
+
+  return bets;
 }
