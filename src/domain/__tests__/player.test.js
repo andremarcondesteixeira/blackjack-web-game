@@ -43,23 +43,5 @@ suite("Player", () => {
         }, `Should throw an exception when ID is ${serialize(id)}`);
       }
     });
-
-    test("A player's balance must be a finite number greater than or equal to 0, or null, or undefined", () => {
-      const garbage = make_garbage({
-        use_positive_numbers_except_zero: false,
-        use_zero: false,
-        use_null: false,
-        use_undefined: false,
-      });
-      for (const balance of garbage) {
-        assert.throws(() => {
-          new Player({
-            id: 1,
-            name: "Claudia",
-            balance
-          });
-        }, `Should throw exception when player's balance is ${serialize(balance)}`);
-      }
-    });
   });
 });

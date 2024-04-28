@@ -1,19 +1,14 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
-import { serialize } from "../../util.js";
+import { name_of, serialize } from "../../util.js";
 import { Balance } from "../balance.js";
 import { make_garbage } from "../../test_helpers.js";
 
-suite("Balance", () => {
+suite(name_of(Balance), () => {
   suite("Happy path", () => {
-    test("The default initial balance is 0", () => {
-      const balance = new Balance();
+    test(`A new ${name_of(Balance)} object can be created`, () => {
+      const balance = new Balance(0);
       assert.equal(balance.value, 0);
-    });
-
-    test("An initial balance can be specified", () => {
-      const balance = new Balance(1000);
-      assert.equal(balance.value, 1000);
     });
 
     test("The initial balance will always be a rounded down integer", () => {
@@ -60,12 +55,10 @@ suite("Balance", () => {
   });
 
   suite("Illegal states must be unrepresentable", () => {
-    test("The custom initial balance must be a number greater than or equal to 0", () => {
+    test("The custom initial balance must be an integer greater than or equal to 0", () => {
       const garbage = make_garbage({
         use_positive_numbers_except_zero: false,
-        use_zero: false,
-        use_undefined: false,
-        use_null: false,
+        use_zero: false
       });
       for (let initial_balance of garbage) {
         assert.throws(() => {
