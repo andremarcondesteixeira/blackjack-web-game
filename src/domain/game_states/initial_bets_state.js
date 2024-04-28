@@ -4,18 +4,18 @@ import { Card } from "../card.js";
 import { Player } from "../player.js";
 
 export class Initial_Bets_State {
-  #cards;
+  #decks;
   #players;
   #bets;
 
-  constructor({ cards, players, bets }) {
-    if (!(cards instanceof Array)) {
-      throw new Error(`Expected an array of cards. Got ${serialize(cards)} instead.`);
+  constructor({ decks, players, bets }) {
+    if (!(decks instanceof Array)) {
+      throw new Error(`Expected an array of cards. Got ${serialize(decks)} instead.`);
     }
 
-    for (let i = 0; i < cards.length; i++) {
-      if (!(cards[i] instanceof Card)) {
-        throw new Error(`Invalid card in cards array at index ${i}: ${serialize(cards[i])}`);
+    for (let i = 0; i < decks.length; i++) {
+      if (!(decks[i] instanceof Card)) {
+        throw new Error(`Invalid card in cards array at index ${i}: ${serialize(decks[i])}`);
       }
     }
 
@@ -39,13 +39,13 @@ export class Initial_Bets_State {
       }
     }
 
-    this.#cards = Object.freeze(cards);
+    this.#decks = Object.freeze(decks);
     this.#players = Object.freeze(players);
     this.#bets = bets;
   }
 
-  get cards() {
-    return this.#cards;
+  get decks() {
+    return this.#decks;
   }
 
   get players() {

@@ -13,13 +13,13 @@ suite(name_of(Initial_Bets_State), () => {
       const bets = make_bets(players);
       const state = new Initial_Bets_State({
         players,
-        cards: make_shuffled_decks(1),
+        decks: make_shuffled_decks(1),
         bets
       });
 
       assert.equal(state.players[0].name, player.name);
       assert.equal(state.players[0].balance, player.balance);
-      assert.equal(state.cards.length, 52);
+      assert.equal(state.decks.length, 52);
     });
   });
 
@@ -30,7 +30,7 @@ suite(name_of(Initial_Bets_State), () => {
         assert.throws(() => {
           new Initial_Bets_State({
             players: [player],
-            cards: make_shuffled_decks(1),
+            decks: make_shuffled_decks(1),
             bets: []
           });
         }, `should throw an exception when player is ${serialize(player)}`);
@@ -43,7 +43,7 @@ suite(name_of(Initial_Bets_State), () => {
         assert.throws(() => {
           new Initial_Bets_State({
             players: [make_player()],
-            cards: [card],
+            decks: [card],
             bets: []
           });
         }, `should throw an exception when card is ${serialize(card)}`);
@@ -56,7 +56,7 @@ suite(name_of(Initial_Bets_State), () => {
         assert.throws(() => {
           new Initial_Bets_State({
             players: [make_player()],
-            cards: [new Card({ face_name: Faces[10], suit: Suits.clubs })],
+            decks: [new Card({ face_name: Faces[10], suit: Suits.clubs })],
             bets: [bet]
           });
         }, `should throw an exception when card is ${serialize(bet)}`);
@@ -66,7 +66,7 @@ suite(name_of(Initial_Bets_State), () => {
     test("All players must place their initial bets before the dealer can deal the initial cards", () => {
       const state = new Initial_Bets_State({
         players: [make_player()],
-        cards: make_shuffled_decks(1),
+        decks: make_shuffled_decks(1),
         bets: []
       });
     })

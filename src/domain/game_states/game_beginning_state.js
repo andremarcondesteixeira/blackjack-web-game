@@ -50,7 +50,7 @@ export class Game_Beginning_State {
   begin_game(bets) {
     return new Initial_Bets_State({
       players: this.#players,
-      cards: make_shuffled_decks(this.#amount_of_decks),
+      decks: make_shuffled_decks(this.#amount_of_decks),
       bets,
     });
   }
