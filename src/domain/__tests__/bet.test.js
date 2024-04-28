@@ -1,8 +1,8 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
+import { make_garbage } from "../../test_helpers.js";
 import { name_of } from "../../util.js";
 import { Bet } from "../bet.js";
-import { make_garbage } from "../../test_helpers.js";
 
 suite(name_of(Bet), () => {
   suite("Happy path", () => {

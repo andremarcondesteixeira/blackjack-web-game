@@ -1,12 +1,12 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
-import { serialize } from "../../util.js";
-import { Player } from "../player.js";
 import { make_garbage } from "../../test_helpers.js";
+import { name_of, serialize } from "../../util.js";
+import { Player } from "../player.js";
 
-suite("Player", () => {
+suite(name_of(Player), () => {
   suite("Happy path", () => {
-    test("A new Player object can be created", () => {
+    test(`A new ${name_of(Player)} object can be created`, () => {
       const player = new Player({
         id: 1,
         name: "Robert",
