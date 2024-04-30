@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "description": "A blackjack game to be played in the browser",
   "main": "src/presentation/web/index.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "koa": "^2.15.3"
+  },
   "scripts": {
     "test": "node --test \"**/__tests__/**/*.test.js\""
   },
