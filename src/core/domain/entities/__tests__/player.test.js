@@ -1,7 +1,7 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
-import { make_garbage } from "../../test_helpers.js";
-import { name_of, serialize } from "../../util.js";
+import { make_garbage } from "../../../../test_helpers.js";
+import { name_of, serialize } from "../../../../util.js";
 import { Player } from "../player.js";
 
 suite(name_of(Player), () => {

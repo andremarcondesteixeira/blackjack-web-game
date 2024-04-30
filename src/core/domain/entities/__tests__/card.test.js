@@ -1,8 +1,8 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
-import { DECKS_MAX_ALLOWED_AMOUNT } from "../../constants.js";
-import { make_garbage } from "../../test_helpers.js";
-import { name_of, serialize } from "../../util.js";
+import { DECKS_MAX_ALLOWED_AMOUNT } from "../../../../constants.js";
+import { make_garbage } from "../../../../test_helpers.js";
+import { name_of, serialize } from "../../../../util.js";
 import { Card, Faces, Suits, make_shuffled_decks } from "../card.js";
 
 suite(name_of(Card), () => {

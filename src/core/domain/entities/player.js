@@ -1,4 +1,4 @@
-import { is_an_actual_positive_integer, serialize } from "../util.js";
+import { is_an_actual_positive_integer, serialize } from "../../../util.js";
 import { Balance } from "./balance.js";
 
 export class Player {

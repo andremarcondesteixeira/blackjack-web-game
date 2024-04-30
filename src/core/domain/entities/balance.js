@@ -1,4 +1,4 @@
-import { is_an_actual_integer, serialize } from "../util.js";
+import { is_an_actual_integer, serialize } from "../../../util.js";
 
 export class Balance {
   #value;

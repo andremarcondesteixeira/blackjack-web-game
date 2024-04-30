@@ -1,5 +1,5 @@
-import { Bet } from "./domain/bet.js";
-import { Player } from "./domain/player.js";
+import { Bet } from "./core/domain/entities/bet.js";
+import { Player } from "./core/domain/entities/player.js";
 
 const default_garbage_config = Object.freeze({
   use_null: true,

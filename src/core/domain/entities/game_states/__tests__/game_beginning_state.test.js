@@ -1,8 +1,8 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
-import { DECKS_MAX_ALLOWED_AMOUNT, PLAYERS_MAX_ALLOWED_AMOUNT } from "../../../constants.js";
-import { make_garbage, make_player } from "../../../test_helpers.js";
-import { name_of, serialize } from "../../../util.js";
+import { DECKS_MAX_ALLOWED_AMOUNT, PLAYERS_MAX_ALLOWED_AMOUNT } from "../../../../../constants.js";
+import { make_garbage, make_player } from "../../../../../test_helpers.js";
+import { name_of, serialize } from "../../../../../util.js";
 import { Game_Beginning_State } from "../game_beginning_state.js";
 import { Initial_Bets_State } from "../initial_bets_state.js";
 

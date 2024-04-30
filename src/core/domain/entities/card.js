@@ -1,5 +1,5 @@
-import { DECKS_MAX_ALLOWED_AMOUNT } from "../constants.js";
-import { serialize } from "../util.js";
+import { DECKS_MAX_ALLOWED_AMOUNT } from "../../../constants.js";
+import { serialize } from "../../../util.js";
 
 export const Suits = Object.freeze({
   diamonds: "diamonds",

@@ -1,7 +1,7 @@
 import { strict as assert } from "node:assert";
 import { suite, test } from "node:test";
-import { make_bets, make_garbage, make_player } from "../../../test_helpers.js";
-import { name_of, serialize } from "../../../util.js";
+import { make_bets, make_garbage, make_player } from "../../../../../test_helpers.js";
+import { name_of, serialize } from "../../../../../util.js";
 import { Card, Faces, Suits, make_shuffled_decks } from "../../card.js";
 import { Initial_Bets_State } from "../initial_bets_state.js";
 
