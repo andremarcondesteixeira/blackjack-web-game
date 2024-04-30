@@ -1,5 +1,6 @@
 import Router from "@koa/router";
 import Koa from "koa";
+import { koaBody } from "koa-body";
 import { create_new_player } from "../../../core/domain/use_cases/create_new_player.js";
 import { start_new_round } from "../../../core/domain/use_cases/start_new_round.js";
 
@@ -26,10 +27,12 @@ router.post("/api/v1/game", context => {
 });
 
 router.post("/api/v1/player", context => {
-  context.body = create_new_player();
+  context.body = JSON.stringify(context.request.body, null, 4);
+  //context.body = create_new_player();
 });
 
 app
+  .use(koaBody())
   .use(router.routes())
   .use(router.allowedMethods())
   .listen(3000, () => {
