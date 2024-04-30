@@ -3,7 +3,7 @@
   "name": "blackjack-web-game",
   "version": "1.0.0",
   "description": "A blackjack game to be played in the browser",
-  "main": "src/presentation/web/index.js",
+  "main": "src/presentation/web/rest_api/index.js",
   "scripts": {
     "test": "node --test \"**/__tests__/**/*.test.js\""
   },
