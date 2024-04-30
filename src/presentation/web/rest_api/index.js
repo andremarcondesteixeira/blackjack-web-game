@@ -9,7 +9,7 @@ router.get("/", context => {
 });
 
 app.use(router.routes())
-   .use(router.allowedMethods())
-   .listen(3000, () => {
-    console.log("server is listening on port 3000");
-   });
+  .use(router.allowedMethods())
+  .listen(3000, () => {
+    console.log("Server is listening on port 3000");
+  });
