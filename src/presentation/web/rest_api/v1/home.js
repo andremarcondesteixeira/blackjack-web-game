@@ -2,7 +2,7 @@ import Router from "@koa/router";
 
 export const home_controller = new Router();
 
-home_controller.get("/", context => {
+home_controller.get("home", "/", context => {
   context.body = {
     links: {
       start_new_round: {

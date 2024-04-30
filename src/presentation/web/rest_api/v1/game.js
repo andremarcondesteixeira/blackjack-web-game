@@ -5,6 +5,6 @@ export const game_controller = new Router({
   prefix: "/game"
 });
 
-game_controller.post("/", context => {
+game_controller.post("start new round", "/", context => {
   context.body = start_new_round();
 });

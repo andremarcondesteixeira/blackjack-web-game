@@ -5,6 +5,6 @@ export const player_controller = new Router({
   prefix: "/player"
 });
 
-player_controller.post("/", context => {
+player_controller.post("create new player", "/", context => {
   context.body = create_new_player();
 });
