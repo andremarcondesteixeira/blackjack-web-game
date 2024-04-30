@@ -5,7 +5,8 @@
   "description": "A blackjack game to be played in the browser",
   "main": "src/presentation/web/rest_api/index.js",
   "scripts": {
-    "test": "node --test \"**/__tests__/**/*.test.js\""
+    "test": "node --test \"**/__tests__/**/*.test.js\"",
+    "start": "node ./src/presentation/web/rest_api/index.js"
   },
   "repository": {
     "type": "git",
