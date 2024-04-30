@@ -1,40 +1,25 @@
 import Router from "@koa/router";
 import Koa from "koa";
 import { koaBody } from "koa-body";
-import { create_new_player } from "../../../core/domain/use_cases/create_new_player.js";
-import { start_new_round } from "../../../core/domain/use_cases/start_new_round.js";
+import { game_controller } from "./v1/game.js";
+import { home_controller } from "./v1/home.js";
+import { player_controller } from "./v1/player.js";
 
 const app = new Koa();
-const router = new Router();
-
-router.get("/", context => {
-  context.body = {
-    links: {
-      start_new_round: {
-        method: "post",
-        url: "/api/v1/game",
-      },
-      create_new_player: {
-        method: "post",
-        url: "/api/v1/player"
-      }
-    }
-  }
+const router = new Router({
+  prefix: "/api/v1"
 });
 
-router.post("/api/v1/game", context => {
-  context.body = start_new_round();
-});
+router.use(home_controller.routes(), home_controller.allowedMethods());
+router.use(game_controller.routes(), game_controller.allowedMethods());
+router.use(player_controller.routes(), player_controller.allowedMethods());
 
-router.post("/api/v1/player", context => {
-  context.body = JSON.stringify(context.request.body, null, 4);
-  //context.body = create_new_player();
-});
+const port = 3000;
 
 app
   .use(koaBody())
   .use(router.routes())
   .use(router.allowedMethods())
-  .listen(3000, () => {
-    console.log("Server is listening on port 3000");
+  .listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
   });
