@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/andremarcondesteixeira/blackjack-web-game/issues"
   },
-  "homepage": "https://github.com/andremarcondesteixeira/blackjack-web-game#readme"
+  "homepage": "https://github.com/andremarcondesteixeira/blackjack-web-game#readme",
+  "devDependencies": {
+    "@types/koa": "^2.15.0"
+  }
 }
