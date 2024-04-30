@@ -6,7 +6,7 @@ const router = new Router();
 
 router.get("/", context => {
   context.body = "It works!";
-})
+});
 
 app.use(router.routes())
    .use(router.allowedMethods())
