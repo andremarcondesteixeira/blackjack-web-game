@@ -55,4 +55,13 @@ export class Initial_Bets_State {
   get bets() {
     return this.#bets;
   }
+
+  deal_initial_cards() {
+    return new Deal_Initial_Cards_State({
+      decks: this.#decks,
+      players: this.#players,
+      bets: this.#bets,
+      dealed_cards
+    });
+  }
 }
